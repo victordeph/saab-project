@@ -1,0 +1,56 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.header{
+    min-width: 1024px;
+    width: 100px;
+    height: 0px auto;
+    margin: 0px auto;
+}
+
+.header .logotipo{
+    width: 770px;
+    margin: 0px auto;
+    padding-top: 20px;
+}
+
+.header .logotipo img{
+    display: block;
+    text-align: left;
+    margin: 0px auto;
+    width: 140px;
+    margin-left: 230px;  
+}
+
+.container{
+    min-width: 1024px;
+    position: relative;
+    width: 70%;
+    margin: 0px auto;
+    font-family: 'Open Sans';
+    margin-bottom: 40px;
+    text-align: center;
+    padding-left: 140px;
+}
+
+.input-group .form-control{
+    width: 70%;
+    position: relative;
+    z-index: 2;
+    float: left;
+    margin-bottom: 0px;
+}
+
+.title{
+    font-size: 30px;
+    text-align: left;
+    text-shadow: 5px;
+    font-weight: bold;
+}
+
+.btn{
+    position: absolute;
+    margin-left: 96px;
+}
