@@ -1,0 +1,95 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Open sans';
+}
+
+header{
+    min-width: 1024px;
+    width: 100px;
+    height: 0px auto;
+    margin: 0px auto;
+}
+
+header .logotipo{
+    width: 200px;
+    height: 4px;
+    margin: 0px auto;
+    padding-top: 20px;
+}
+
+header .logotipo img{
+    display: block;
+    text-align: left;
+    margin: 0px auto;
+    width: 140px;
+    margin-left: 230px;
+}
+
+.container{
+    min-width: 1024px;
+    position: relative;
+    margin: 0px auto;
+    font-family: 'Open Sans';
+    margin-bottom: 40px;
+
+
+}
+
+.container h2{
+    font-size: 30px;
+    text-align: left;
+    text-shadow: 5px;
+    font-weight: bold;
+}
+
+.modal-header{
+    padding: 10px 50px;
+}
+
+.modal-body{
+    padding:40px 50px;
+}
+
+.modal-header, h4, .close{
+    background-color: #357BB7;
+    color: white !important;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+h5{
+    color: white !important;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+h6{
+    color: white !important;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.modal-footer {
+    background-color: #f9f9f9;
+}
+
+
+h2{
+    text-align: Center;
+    padding: 15px;
+}
+
+#tabla-a{
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+}
+
+#tabla-b{
+    color: black;
+    font-family: Helvetica, Arial, sans-serif;
+}

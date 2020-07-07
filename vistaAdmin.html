@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/AdminU.css">
+    <title>Administración de Usuarios</title>
+</head>
+<body>
+
+    <header>
+        <div class="logotipo">
+            <img src="img/logo.png" alt="Logotipo">
+        </div>
+    </header>
+
+    <div>
+
+    </div>
+
+    <div class="container">
+        <h2>
+            Administración de Usuarios
+            <span class="glyphicon glyphicon-user"></span>
+        </h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Usuario</th>
+                        <th>Departamento</th>
+                        <th></th>
+                        <th></th>
+                        <th><button type="button" class="btn btn-success" id="BtnAna">Añadir</button></th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Victor</td>
+                            <td>Ventas</td>
+                            <td><button type="button" class="btn btn-primary" id="myBtn">Modificar</button></td>
+                            <td><button type="button" class="btn btn-danger" id="BtnEli">Eliminar</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Erick</td>
+                            <td>Ventas</td>
+                            <td><button type="button" class="btn btn-primary" id="myBtn">Modificar</button></td>
+                            <td><button type="button" class="btn btn-danger" id="BtnEli">Eliminar</button></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Roel</td>
+                            <td>Ventas</td>
+                            <td><button type="button" class="btn btn-primary" id="myBtn">Modificar</button></td>
+                            <td><button type="button" class="btn btn-danger" id="BtnEli">Eliminar</button></td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" >
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4>Modificar</h4>
+                </div>
+                    <div class="modal-body">
+                    <form role="form">
+                    <div class="form-group">
+                        <label>Usuario</label>
+                        <input type="text" class="form-control" id="usuario" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Departamento</label>
+                        <input type="text" class="form-control" id="departamento" placeholder="">
+                    </div>
+
+                        <button type="submit" class="btn btn-primary btn-block"> Modificar</button>
+                        <br>
+                        <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal">Cancelar</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <script>
+        $(document).ready(function(){
+            $("#myBtn").click(function(){
+            $("#myModal").modal();
+            });
+        });
+        </script>
+
+<!-- Eliminar -->
+        <div class="container">
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModalE" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color:Indianred">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h6>Eliminar</h6>
+                    </div>
+                        <div class="modal-body">
+                        <form role="form">
+                        <div class="form-group">
+                            <label>Usuario</label>
+                            <input type="text" class="form-control" id="usuario" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label>Departamento</label>
+                            <input type="text" class="form-control" id="departamento" placeholder="">
+                        </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" style="background-color:black"> Eliminar</button>
+                            <br>
+                            <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal">Cancelar</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <script>
+            $(document).ready(function(){
+                $("#BtnEli").click(function(){
+                $("#myModalE").modal();
+                });
+            });
+            </script>
+
+<!-- Añadir -->
+<div class="container">
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModalA" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" style="background-color:#5BB85D">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h5>Añadir</h5>
+            </div>
+                <div class="modal-body">
+                <form role="form">
+                <div class="form-group">
+                    <label>Usuario</label>
+                    <input type="text" class="form-control" id="usuario" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label>Departamento</label>
+                    <input type="text" class="form-control" id="departamento" placeholder="">
+                </div>
+
+                    <button type="submit" class="btn btn-primary btn-block" style="background-color:#5BB85D">Añadir</button>
+                    <br>
+                    <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal">Cancelar</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <script>
+    $(document).ready(function(){
+        $("#BtnAna").click(function(){
+        $("#myModalA").modal();
+        });
+    });
+    </script>
+
+</body>
+</html>
