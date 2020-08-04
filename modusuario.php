@@ -14,7 +14,7 @@ if(isset($_POST['btnMod']))
     if($query_run)
     {
         echo '<script> alert("Datos actualizados"); </script>';
-        header('Ubicacion: usuarioPrueba.php');
+        header('location: usuarioPrueba.php');
     }
     else
     {
