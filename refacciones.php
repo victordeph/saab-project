@@ -11,23 +11,65 @@
     <title>Refacciones</title>
     <script>
         $(document).ready(function(){
-            $("#modificar").click(function(){
-            $("#modificarModal").modal();
-            });
-        });
-
-        $(document).ready(function(){
         $("#añadir").click(function(){
         $("#añadirModal").modal();
         });
     });
 
     $(document).ready(function(){
+            $('.modbtn').on('click', function() {
+
+                $('#modificarModal').modal('show');
+                    $tr = $(this).closest('tr');
+                    var data = $tr.children("td").map(function() {
+                        return $(this).text();
+                    }).get();
+
+                    console.log(data);
+
+                    $('#modId').val(data[0]);
+                    $('#refaccion').val(data[1]);
+                    $('#vehiculo').val(data[2]);
+                    $('#cantidad').val(data[3]);
+                    $('#costo').val(data[4]);
+                    $('#date').val(data[5]);
+            });
+        });
+
+   /*  $(document).ready(function(){
         $("#eliminar").click(function(){
         $("#eliminarModal").modal();
         });
-    });
-        </script>
+    }); */
+
+    $(document).ready(function(){
+                $('.elibtn').on('click', function() {
+                    $('#eliminarModal').modal('show');
+                        $tr = $(this).closest('tr');
+                        var data = $tr.children("td").map(function() {
+                            return $(this).text();
+                        }).get();
+
+                        console.log(data);
+
+                        $('#eliId').val(data[0]);
+                });
+            });
+    </script>
+
+    <?php
+        $host="localhost";
+        $baseDatos="bdsaab";
+        $usuario="root";
+        $contrasena="";
+    
+        $conexion = mysqli_connect($host,$usuario,$contrasena,$baseDatos);
+    
+    $query = "select * from refacciones";
+    $query_run = mysqli_query($conexion, $query);
+    $array = mysqli_fetch_array($query_run);
+    
+    ?>
 
 </head>
 <body>
@@ -62,38 +104,32 @@
                         <th></th>
                     </tr>
                 </thead>
+                <?php
+                if($query_run)
+                {
+                    foreach($query_run as $row)
+                    {
+                ?>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Freno</td>
-                            <td>Volvo</td>
-                            <td>10</td>
-                            <td>1000.0</td>
-                            <td>06-06-2020</td>
-                            <td><button type="button" class="btn btn-primary" id="modificar">Modificar</button></td>
-                            <td><button type="button" class="btn btn-danger" id="eliminar">Eliminar</button></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Chasis</td>
-                            <td>BMW</td>
-                            <td>10</td>
-                            <td>1000.0</td>
-                            <td>06-06-2020</td>
-                            <td><button type="button" class="btn btn-primary" id="modificar">Modificar</button></td>
-                            <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Transmision</td>
-                            <td>KIA</td>
-                            <td>10</td>
-                            <td>1000.0</td>
-                            <td>06-06-2020</td>
-                            <td><button type="button" class="btn btn-primary" id="modificar">Modificar</button></td>
-                            <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+                            <td> <?php echo $row['id_refacciones'];?></td>
+                            <td><?php echo $row['refaccion'];?></td>
+                            <td><?php echo $row['vehiculo'];?></td>
+                            <td><?php echo $row['cantidad'];?></td>
+                            <td><?php echo $row['costo'];?></td>
+                            <td><?php echo $row['fecha'];?></td>
+                            <td><button type="button" class="btn btn-primary modbtn" id="modificar">Modificar</button></td>
+                            <td><button type="button" class="btn btn-danger elibtn" id="eliminar">Eliminar</button></td>
                         </tr>
                     </tbody>
+                    <?php
+                        }
+                    }
+                    else
+                    {
+                        echo "No se encuentra el registro";
+                    }
+                ?>
             </table>
         </div>
     </div>
@@ -111,28 +147,30 @@
                     <h4>Modificar</h4>
                 </div>
                     <div class="modal-body">
-                    <form role="form">
+                    <form role="form" action="controller/modificarRefaccion.php" method="POST">
+                    <input type="hidden" name="modId" id="modId" disable>
                     <div class="form-group">
+                    <input type="hidden" name="txtId">
                         <label> Refaccion</label>
-                        <input type="text" class="form-control" id="refaccion" placeholder="">
+                        <input type="text" class="form-control" id="refaccion" name="refaccion" placeholder="">
                     </div>
                     <div class="form-group">
                         <label>Vehiculo</label>
-                        <input type="text" class="form-control" id="vehiculo" placeholder="">
+                        <input type="text" class="form-control" id="vehiculo" name="vehiculo" placeholder="">
                     </div>
                     <div class="form-group">
                         <label>Cantidad</label>
-                        <input type="text" class="form-control" id="cantidad" placeholder="">
+                        <input type="text" class="form-control" id="cantidad" name="cantidad" placeholder="">
                     </div>
                     <div class="form-group">
                         <label>Costo Unitario</label>
-                        <input type="text" class="form-control" id="costo" placeholder="">
+                        <input type="text" class="form-control" id="costo" name="costo" placeholder="">
                     </div>
                     <div class="form-group">
                         <label>Fecha de ingreso</label>
-                        <input type="text" class="form-control" id="date" placeholder="">
+                        <input type="text" class="form-control" id="date" name="date" placeholder="">
                     </div>
-                        <button type="submit" class="btn btn-primary btn-block"> Modificar</button>
+                        <button type="submit" class="btn btn-primary btn-block" name="btnMod"> Modificar</button>
                         <br>
                         <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal">Cancelar</button>
                     </form>
@@ -144,6 +182,7 @@
             </div> 
         </div>
 
+        
 
 <div class="container">
         
@@ -158,28 +197,29 @@
                 <h5>Añadir nuevo</h5>
             </div>
                 <div class="modal-body">
-                <form role="form">
+                <form role="form" action="controller/refaccionesController.php" method="POST">
                 <div class="form-group">
                     <label> Refaccion</label>
-                    <input type="text" class="form-control" id="refaccion" placeholder="">
+                    <input type="text" class="form-control" id="refaccion" name="refaccion" placeholder="">
                 </div>
                 <div class="form-group">
                     <label>Vehiculo</label>
-                    <input type="text" class="form-control" id="vehiculo" placeholder="">
+                    <input type="text" class="form-control" id="vehiculo" name="vehiculo" placeholder="">
                 </div>
                 <div class="form-group">
                     <label>Cantidad</label>
-                    <input type="text" class="form-control" id="cantidad" placeholder="">
+                    <input type="text" class="form-control" id="cantidad" name="cantidad" placeholder="">
                 </div>
                 <div class="form-group">
                     <label>Costo Unitario</label>
-                    <input type="text" class="form-control" id="costo" placeholder="">
+                    <input type="text" class="form-control" id="costo" name="costo" placeholder="">
                 </div>
                 <div class="form-group">
                     <label>Fecha de ingreso</label>
-                    <input type="text" class="form-control" id="date" placeholder="">
-                </div>
-                    <button type="submit" class="btn btn-success btn-block"> Añadir</button>
+                    <input type="text" class="form-control" id="date" name="date" placeholder="">
+                </div>                
+
+                    <button type="submit" class="btn btn-success btn-block" name="insertar"> Añadir</button>
                     <br>
                     <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal">Cancelar</button>
                 </form>
@@ -204,8 +244,9 @@
                     <h5>¿Deseas eliminar?</h5>
                 </div>
                     <div class="modal-body">
-                    <form role="form">
-                    <div class="form-group">
+                    <form role="form" action="controller/eliminarRefaccion.php" method="POST">
+                    <input type="hidden" name="eliId" id="eliId">
+                    <!-- <div class="form-group">
                         <label> Refaccion</label>
                         <input type="text" class="form-control" id="refaccion" placeholder="">
                     </div>
@@ -224,8 +265,8 @@
                     <div class="form-group">
                         <label>Fecha de ingreso</label>
                         <input type="text" class="form-control" id="date" placeholder="">
-                    </div>
-                        <button type="submit" class="btn btn-danger btn-block">Eliminar</button>
+                    </div> -->
+                        <button type="submit" class="btn btn-danger btn-block" name="btnEli">Eliminar</button>
                         <br>
                         <button type="submit" class="btn btn-primary btn-block" data-dismiss="modal">Cancelar</button>
                     </form>

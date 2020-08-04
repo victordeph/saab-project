@@ -90,7 +90,7 @@
                     <div class="modal-body">
                     <input type="hidden" name="modId" id="modId" disable>
                     <div class="form-group">
-                            <input type="hidden" name="txtId" >
+                            <input type="hidden" name="txtId">
                         <label>Usuario</label>
                         <input type="text" class="form-control" name="usuario" id="usuario" placeholder="" >
                     </div>
@@ -130,11 +130,9 @@
 
 <!-- Eliminar -->
         <div class="container">
-
             <!-- Modal -->
             <div class="modal fade" id="eliMod" role="dialog">
                 <div class="modal-dialog">
-
                     <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header" style="background-color:Indianred">
@@ -155,19 +153,15 @@
                 </div>
                 </div>
             </div>
-
             <script>
             $(document).ready(function(){
                 $('.elibtn').on('click', function() {
-
                     $('#eliMod').modal('show');
                         $tr = $(this).closest('tr');
                         var data = $tr.children("td").map(function() {
                             return $(this).text();
                         }).get();
-
                         console.log(data);
-
                         $('#elid').val(data[0]);
                 });
             });
