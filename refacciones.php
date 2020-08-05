@@ -36,12 +36,6 @@
             });
         });
 
-   /*  $(document).ready(function(){
-        $("#eliminar").click(function(){
-        $("#eliminarModal").modal();
-        });
-    }); */
-
     $(document).ready(function(){
                 $('.elibtn').on('click', function() {
                     $('#eliminarModal').modal('show');
@@ -58,12 +52,8 @@
     </script>
 
     <?php
-        $host="localhost";
-        $baseDatos="bdsaab";
-        $usuario="root";
-        $contrasena="";
-    
-        $conexion = mysqli_connect($host,$usuario,$contrasena,$baseDatos);
+
+    require 'controller/conexion.php';
     
     $query = "select * from refacciones";
     $query_run = mysqli_query($conexion, $query);
@@ -116,7 +106,7 @@
                             <td><?php echo $row['refaccion'];?></td>
                             <td><?php echo $row['vehiculo'];?></td>
                             <td><?php echo $row['cantidad'];?></td>
-                            <td><?php echo $row['costo'];?></td>
+                            <td>$<?php echo $row['costo'];?> MXN</td>
                             <td><?php echo $row['fecha'];?></td>
                             <td><button type="button" class="btn btn-primary modbtn" id="modificar">Modificar</button></td>
                             <td><button type="button" class="btn btn-danger elibtn" id="eliminar">Eliminar</button></td>
@@ -197,7 +187,7 @@
                 <h5>Añadir nuevo</h5>
             </div>
                 <div class="modal-body">
-                <form role="form" action="controller/refaccionesController.php" method="POST">
+                <form role="form" action="controller/insertarRefaccion.php" method="POST">
                 <div class="form-group">
                     <label> Refaccion</label>
                     <input type="text" class="form-control" id="refaccion" name="refaccion" placeholder="">
