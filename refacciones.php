@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/refacciones.css">
     <title>Refacciones</title>
@@ -62,18 +62,18 @@
         $baseDatos="bdsaab";
         $usuario="root";
         $contrasena="";
-    
+
         $conexion = mysqli_connect($host,$usuario,$contrasena,$baseDatos);
-    
+
     $query = "select * from refacciones";
     $query_run = mysqli_query($conexion, $query);
     $array = mysqli_fetch_array($query_run);
-    
+
     ?>
 
 </head>
 <body>
-    
+
     <header>
         <div class="logotipo">
             <img src="img/logo.png" alt="Logotipo">
@@ -83,14 +83,20 @@
     <div>
 
     </div>
-    
+
     <div class="container">
         <h2>Refacciones</h2>
     <div class="añadir">
         <button type="button" class="btn btn-success" id="añadir">Añadir</button>
     </div>
 
-        <div class="table-responsive">          
+    <div class="container">
+
+        <div class="search_box">
+            <input type="text" id="myInput" placeholder="Buscar...">
+        </div>
+
+        <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
@@ -110,7 +116,7 @@
                     foreach($query_run as $row)
                     {
                 ?>
-                    <tbody>
+                    <tbody id="myTable">
                         <tr>
                             <td> <?php echo $row['id_refacciones'];?></td>
                             <td><?php echo $row['refaccion'];?></td>
@@ -134,12 +140,10 @@
         </div>
     </div>
 
-    <div class="container">
-        
         <!-- Modal -->
         <div class="modal fade" id="modificarModal" role="dialog">
             <div class="modal-dialog">
-            
+
                 <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header" >
@@ -179,17 +183,17 @@
                     </div>
                 </div>
             </div>
-            </div> 
+            </div>
         </div>
 
-        
+
 
 <div class="container">
-        
+
     <!-- Modal -->
     <div class="modal fade" id="añadirModal" role="dialog">
         <div class="modal-dialog">
-        
+
             <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header" style="background-color:#5BB85D;" >
@@ -197,7 +201,7 @@
                 <h5>Añadir nuevo</h5>
             </div>
                 <div class="modal-body">
-                <form role="form" action="controller/refaccionesController.php" method="POST">
+                <form role="form" action="controller/insertarRefaccion.php" method="POST">
                 <div class="form-group">
                     <label> Refaccion</label>
                     <input type="text" class="form-control" id="refaccion" name="refaccion" placeholder="">
@@ -217,7 +221,7 @@
                 <div class="form-group">
                     <label>Fecha de ingreso</label>
                     <input type="text" class="form-control" id="date" name="date" placeholder="">
-                </div>                
+                </div>
 
                     <button type="submit" class="btn btn-success btn-block" name="insertar"> Añadir</button>
                     <br>
@@ -228,15 +232,15 @@
                 </div>
             </div>
         </div>
-        </div> 
+        </div>
     </div>
 
     <div class="container">
-        
+
         <!-- Modal -->
         <div class="modal fade" id="eliminarModal" role="dialog">
             <div class="modal-dialog">
-            
+
                 <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header" style="background-color:#D9534F;" >
@@ -275,8 +279,18 @@
                     </div>
                 </div>
             </div>
-            </div> 
+            </div>
         </div>
 
+        <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+        </script>
 </body>
 </html>
