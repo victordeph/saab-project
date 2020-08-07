@@ -106,7 +106,7 @@
                             <td><?php echo $row['refaccion'];?></td>
                             <td><?php echo $row['vehiculo'];?></td>
                             <td><?php echo $row['cantidad'];?></td>
-                            <td>$<?php echo $row['costo'];?> MXN</td>
+                            <td><?php echo $row['costo'];?></td>
                             <td><?php echo $row['fecha'];?></td>
                             <td><button type="button" class="btn btn-primary modbtn" id="modificar">Modificar</button></td>
                             <td><button type="button" class="btn btn-danger elibtn" id="eliminar">Eliminar</button></td>
