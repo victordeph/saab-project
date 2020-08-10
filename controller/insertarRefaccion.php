@@ -1,5 +1,5 @@
 <?php
- require 'conexion.php';
+require 'conexion.php';
 
 if (isset($_POST['insertar'])) {
 
@@ -20,5 +20,10 @@ if ($query_run) {
 
 }
 
+
+?>
+
+<?php
+require 'conexion.php';
 
 ?>
