@@ -52,19 +52,10 @@
     </script>
 
     <?php
-<<<<<<< HEAD
-        $host="localhost";
-        $baseDatos="bdsaab";
-        $usuario="root";
-        $contrasena="";
 
-        $conexion = mysqli_connect($host,$usuario,$contrasena,$baseDatos);
-
-=======
 
     require 'controller/conexion.php';
     
->>>>>>> 9f2bec7c1b05d64e011e26bfbedd4ddb0963330c
     $query = "select * from refacciones";
     $query_run = mysqli_query($conexion, $query);
     $array = mysqli_fetch_array($query_run);

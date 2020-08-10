@@ -26,18 +26,6 @@ departamento_reportes VARCHAR(20) NOT NULL,
 id_refacciones INT NOT NULL
 );
 
-FOREIGN KEY (id_refacciones) REFERENCES refacciones(id_refacciones)
-
-ALTER TABLE reportes ADD FOREIGN KEY(id_refacciones) REFERENCES refacciones(id_refacciones)
-
-INSERT INTO reportes (refaccion,vehiculo,cantidad, costo_unitario, costo_total, fecha_solictud, id_refacciones) values ('test','test','10','10','10','2000-03-31','1');
-
-CREATE TRIGGER reporte AFTER INSERT ON reportes
-    FOR EACH ROW
-    BEGIN
-    DECLARE cantidad = 
-    UPDATE refacciones
-
     INSERT INTO reportes (refaccion_reportes, vehiculo_reportes,cantidad_reportes, costo_reportes, costo_total_reportes, fecha_solictud_reportes,departamento_reportes, id_refacciones) 
     values ('test','test','2','10','10','2000-03-31','Ventas','2');
     UPDATE refacciones SET cantidad = cantidad-2 where id_refacciones=2;
