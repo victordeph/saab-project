@@ -7,8 +7,9 @@ if(isset($_POST['btnMod']))
     $id = $_POST['modId'];
     $usuario = $_POST['usuario'];
     $departamento = $_POST['departamento'];
+    $password = $_POST['password'];
 
-    $query = "update catalogo set usuario='$usuario', departamento='$departamento' where idusuario='$id' ";
+    $query = "update catalogo set usuario='$usuario', departamento='$departamento', password='$password' where idusuario='$id' ";
     $query_run = mysqli_query($conexion, $query);
 
     if($query_run)

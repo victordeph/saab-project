@@ -42,6 +42,7 @@
                         <th>#</th>
                         <th>Usuario</th>
                         <th>Departamento</th>
+                        <th>Contraseña</th>
                         <th></th>
                         <th></th>
                         <th><button type="button" class="btn btn-success" id="BtnAna">Añadir</button></th>
@@ -58,6 +59,7 @@
                             <td> <?php echo $row['idusuario']; ?> </td>
                             <td> <?php echo $row['usuario']; ?> </td>
                             <td> <?php echo $row['departamento']; ?> </td>
+                            <td> <?php echo $row['password']; ?> </td>
                             <td><button type="button" class="btn btn-primary modbtn" id="myBtn">Modificar</button></td>
                             <td><button type="button" class="btn btn-danger elibtn" id="BtnEli">Eliminar</button></td>
                         </tr>
@@ -98,6 +100,10 @@
                         <label>Departamento</label>
                         <input type="text" class="form-control" name="departamento" id="departamento" placeholder="" >
                     </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="text" class="form-control" name="password" id="password" placeholder="" >
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary btn-block" name="btnMod"> Modificar</button>
@@ -124,6 +130,7 @@
                     $('#modId').val(data[0]);
                     $('#usuario').val(data[1]);
                     $('#departamento').val(data[2]);
+                    $('#password').val(data[3]);
             });
         });
         </script>
@@ -192,6 +199,11 @@
                 <div class="form-group">
                     <label>Departamento</label>
                     <input type="text" name="departamento" class="form-control" id="departamento" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="text" name="password" class="form-control" id="password" placeholder="">
                 </div>
             </div>
             <div class="modal-footer">
