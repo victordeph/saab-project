@@ -13,7 +13,7 @@ $array = mysqli_fetch_array($consulta);
 if ($array['contar']>0) {
     $_SESSION['user'] = $user;
     echo '<script> alert("Bienvenido");</script>';
-    header("Location: ../usuarioPrueba.php");
+    header("Location: ../refacciones.php");
 }else{
     echo '<script> alert("el usuario no existe");</script>';
     
