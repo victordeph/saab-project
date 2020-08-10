@@ -43,45 +43,9 @@ header .logotipo img{
     font-weight: bold;
 }
 
-.modal-header{
-    padding: 10px 50px;
-}
-
-.modal-body{
-    padding:40px 50px;
-}
-
-.modal-header, h4, .close{
-    background-color: #357BB7;
-    color: white !important;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-h5{
-    color: white !important;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-h6{
-    color: white !important;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-.modal-footer {
-    background-color: #f9f9f9;
-}
 
 
-h2{
-    text-align: Center;
-    padding: 15px;
-}
+
 
 #tabla-a{
     color: black;
@@ -92,4 +56,8 @@ h2{
 #tabla-b{
     color: black;
     font-family: Helvetica, Arial, sans-serif;
+}
+
+.añadir{
+    padding-left: 550px;
 }

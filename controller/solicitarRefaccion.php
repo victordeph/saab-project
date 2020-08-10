@@ -12,7 +12,7 @@ if (isset($_POST['solicitar'])) {
     $departamento = $_POST['departamento'];
 
     $query = "INSERT INTO reportes (refaccion_reportes, vehiculo_reportes,cantidad_reportes, costo_reportes, costo_total_reportes, 
-    fecha_solictud_reportes, departamento_reportes, id_refacciones) values ('$refaccion','$vehiculo','$cantidad','$costo','$costoT','$date','$departamento','$id');";
+    fecha_solictud_reportes, departamento_reportes, id_refacciones, estado_reportes) values ('$refaccion','$vehiculo','$cantidad','$costo','$costoT','$date','$departamento','$id', 'Pendiente');";
     $query_run = mysqli_query($conexion, $query);
 
     if ($query_run) {
@@ -29,6 +29,17 @@ if (isset($_POST['solicitar'])) {
 
     if ($query_run) {
         header('location: ../solicitudRefacciones.php');   
+    }
+}
+
+if (isset($_POST['btnEstado'])) {
+    $id_reporte = $_POST['id_reporte'];
+    $estado = $_POST['status'];
+    $query = "UPDATE reportes SET estado_reportes = '$estado' where id_reportes=$id_reporte;";
+    $query_run = mysqli_query($conexion, $query);
+
+    if ($query_run) {
+        header('location: ../todos.php');   
     }
 }
 

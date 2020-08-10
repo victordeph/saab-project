@@ -4,26 +4,6 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-header{
-    min-width: 1024px;
-    width: 100px;
-    height: 0px auto;
-    margin: 0px auto;
-}
-
-header .logotipo{
-    width: 770px;
-    margin: 0px auto;
-    padding-top: 20px;
-}
-
-header .logotipo img{
-    display: block;
-    text-align: left;
-    margin: 0px auto;
-    width: 140px;
-    margin-left: 230px;  
-}
 
 .container{
     min-width: 1024px;
@@ -43,34 +23,12 @@ header .logotipo img{
 }
 
 .modal-header{
-    padding: 10px 50px;
+    
 }
 
 .modal-body{
     padding:40px 50px;
 }
 
-.modal-header, h4, .close {
-    background-color: #357BB7 ;
-    color: white !important;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-}
 
-h5{
-    color: white !important;
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-}
-
-
-.modal-footer {
-    background-color: #f9f9f9;
-}
-
-.añadir{
-text-align: right;
-}
 

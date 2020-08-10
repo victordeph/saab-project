@@ -1,28 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/AdminU.css">
-    <title>Administración de Usuarios</title>
-</head>
-<body>
-
+<?php
+require_once "views/header.php";
+?>
 
     <div class="container">
         <h2>
             Administración de Usuarios
             <span class="glyphicon glyphicon-user"></span>
+            <button type="button" class="btn añadir" id="BtnAna"><i class="fas fa-plus-square"></i> Añadir</button>
         </h2>
+        
         <div class="table-responsive">
 
             <?php
-                $conexion = mysqli_connect("localhost", "root", "");
-                $db = mysqli_select_db($conexion, 'bdsaab');
+                require 'controller/conexion.php';
 
                 $query = "select * from catalogo";
                 $query_run = mysqli_query($conexion, $query);
@@ -36,7 +26,7 @@
                         <th>Contraseña</th>
                         <th></th>
                         <th></th>
-                        <th><button type="button" class="btn btn-success" id="BtnAna">Añadir</button></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <?php
@@ -51,8 +41,8 @@
                             <td> <?php echo $row['usuario']; ?> </td>
                             <td> <?php echo $row['departamento']; ?> </td>
                             <td> <?php echo $row['password']; ?> </td>
-                            <td><button type="button" class="btn btn-primary modbtn" id="myBtn">Modificar</button></td>
-                            <td><button type="button" class="btn btn-danger elibtn" id="BtnEli">Eliminar</button></td>
+                            <td><button type="button" class="btn modbtn" id="myBtn"><i class="fas fa-pen"></i></button></td>
+                            <td><button type="button" class="btn elibtn" id="BtnEli"><i class="fas fa-trash-alt"></i></button></td>
                         </tr>
                     </tbody>
                 <?php
@@ -215,5 +205,6 @@
     });
     </script>
 
-</body>
-</html>
+<?php
+require_once "views/footer.php";
+?>

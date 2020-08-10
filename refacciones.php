@@ -1,55 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/refacciones.css">
-    <title>Refacciones</title>
-    <script>
-        $(document).ready(function(){
-        $("#añadir").click(function(){
-        $("#añadirModal").modal();
-        });
-    });
-
-    $(document).ready(function(){
-            $('.modbtn').on('click', function() {
-
-                $('#modificarModal').modal('show');
-                    $tr = $(this).closest('tr');
-                    var data = $tr.children("td").map(function() {
-                        return $(this).text();
-                    }).get();
-
-                    console.log(data);
-
-                    $('#modId').val(data[0]);
-                    $('#refaccion').val(data[1]);
-                    $('#vehiculo').val(data[2]);
-                    $('#cantidad').val(data[3]);
-                    $('#costo').val(data[4]);
-                    $('#date').val(data[5]);
-            });
-        });
-
-    $(document).ready(function(){
-                $('.elibtn').on('click', function() {
-                    $('#eliminarModal').modal('show');
-                        $tr = $(this).closest('tr');
-                        var data = $tr.children("td").map(function() {
-                            return $(this).text();
-                        }).get();
-
-                        console.log(data);
-
-                        $('#eliId').val(data[0]);
-                });
-            });
-    </script>
+<?php
+require_once "views/header.php";
+?>
 
     <?php
 
@@ -62,14 +13,6 @@
 
     ?>
 
-</head>
-<body>
-
-    <header>
-        <div class="logotipo">
-            <img src="img/logo.png" alt="Logotipo">
-        </div>
-    </header>
 
     <div>
 
@@ -77,15 +20,25 @@
 
     <div class="container">
         <h2>Refacciones</h2>
-    <div class="añadir">
-        <button type="button" class="btn btn-success" id="añadir">Añadir</button>
-    </div>
-
+    
     <div class="container">
 
-        <div class="search_box">
-            <input type="text" id="myInput" placeholder="Buscar...">
-        </div>
+        <form class="form-inline buscar">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input id="myInput" class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Buscar" aria-label="Buscar">
+            <button type="button" class="btn" id="añadir"><i class="fas fa-plus-square"></i> Añadir</button>
+        </form>
+
+        <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+        });
+        </script>
 
         <div class="table-responsive">
             <table class="table">
@@ -115,8 +68,8 @@
                             <td><?php echo $row['cantidad'];?></td>
                             <td><?php echo $row['costo'];?></td>
                             <td><?php echo $row['fecha'];?></td>
-                            <td><button type="button" class="btn btn-primary modbtn" id="modificar">Modificar</button></td>
-                            <td><button type="button" class="btn btn-danger elibtn" id="eliminar">Eliminar</button></td>
+                            <td><button type="button" class="btn modbtn" id="modificar"><i class="fas fa-pen"></i></button></td>
+                            <td><button type="button" class="btn elibtn" id="eliminar"><i class="fas fa-trash-alt"></i></button></td>
                         </tr>
                     </tbody>
                     <?php
@@ -137,10 +90,12 @@
 
                 <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header" >
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4>Modificar</h4>
-                </div>
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modificar</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            </div>
                     <div class="modal-body">
                     <form role="form" action="controller/modificarRefaccion.php" method="POST">
                     <input type="hidden" name="modId" id="modId" disable>
@@ -164,18 +119,39 @@
                     <div class="form-group">
                         <label>Fecha de ingreso</label>
                         <input type="text" class="form-control" id="date" name="date" placeholder="">
-                    </div>
-                        <button type="submit" class="btn btn-primary btn-block" name="btnMod"> Modificar</button>
-                        <br>
-                        <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal">Cancelar</button>
-                    </form>
-                </div>
+                    </div>  
+            
                 <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" name="btnMod"> Modificar</button>
+                        <button type="submit" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </form>
                     </div>
                 </div>
             </div>
             </div>
         </div>
+
+        <script>
+            $(document).ready(function(){
+            $('.modbtn').on('click', function() {
+
+                $('#modificarModal').modal('show');
+                    $tr = $(this).closest('tr');
+                    var data = $tr.children("td").map(function() {
+                        return $(this).text();
+                    }).get();
+
+                    console.log(data);
+
+                    $('#modId').val(data[0]);
+                    $('#refaccion').val(data[1]);
+                    $('#vehiculo').val(data[2]);
+                    $('#cantidad').val(data[3]);
+                    $('#costo').val(data[4]);
+                    $('#date').val(data[5]);
+            });
+        });
+        </script>
 
 
 
@@ -187,44 +163,66 @@
 
             <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header" style="background-color:#5BB85D;" >
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h5>Añadir nuevo</h5>
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Añadir refaccion</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
             </div>
                 <div class="modal-body">
-                <form role="form" action="controller/insertarRefaccion.php" method="POST">
+                <form role="form" action="controller/insertarRefaccion.php" method="POST" class="my-login-validation" novalidate="">
                 <div class="form-group">
                     <label> Refaccion</label>
-                    <input type="text" class="form-control" id="refaccion" name="refaccion" placeholder="">
+                    <input type="text" class="form-control" id="refaccion" name="refaccion"  required autofocus>
+                        <div class="invalid-feedback">
+                            Requerido!
+                        </div>
                 </div>
                 <div class="form-group">
                     <label>Vehiculo</label>
-                    <input type="text" class="form-control" id="vehiculo" name="vehiculo" placeholder="">
+                    <input type="text" class="form-control" id="vehiculo" name="vehiculo" required autofocus>
+                    <div class="invalid-feedback">
+                            Requerido!
+                        </div>
                 </div>
                 <div class="form-group">
                     <label>Cantidad</label>
-                    <input type="text" class="form-control" id="cantidad" name="cantidad" placeholder="">
+                    <input type="text" class="form-control" id="cantidad" name="cantidad" required autofocus>
+                    <div class="invalid-feedback">
+                            Requerido!
+                        </div>
                 </div>
                 <div class="form-group">
                     <label>Costo Unitario</label>
-                    <input type="text" class="form-control" id="costo" name="costo" placeholder="">
+                    <input type="text" class="form-control" id="costo" name="costo" required autofocus>
+                    <div class="invalid-feedback">
+                            Requerido!
+                        </div>
                 </div>
                 <div class="form-group">
                     <label>Fecha de ingreso</label>
-                    <input type="text" class="form-control" id="date" name="date" placeholder="">
+                    <input type="text" class="form-control" id="date" name="date" required autofocus>
+                    <div class="invalid-feedback">
+                            Requerido!
+                        </div>
                 </div>
-
-                    <button type="submit" class="btn btn-success btn-block" name="insertar"> Añadir</button>
-                    <br>
-                    <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal">Cancelar</button>
-                </form>
-            </div>
             <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" name="insertar"> Añadir</button>
+                    <button type="submit" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </form>
                 </div>
             </div>
         </div>
         </div>
     </div>
+
+        <script>
+        $(document).ready(function(){
+        $("#añadir").click(function(){
+        $("#añadirModal").modal();
+        });
+    });
+        </script>
 
     <div class="container">
 
@@ -234,39 +232,19 @@
 
                 <!-- Modal content-->
             <div class="modal-content">
-                <div class="modal-header" style="background-color:#D9534F;" >
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h5>¿Deseas eliminar?</h5>
-                </div>
-                    <div class="modal-body">
-                    <form role="form" action="controller/eliminarRefaccion.php" method="POST">
-                    <input type="hidden" name="eliId" id="eliId">
-                    <!-- <div class="form-group">
-                        <label> Refaccion</label>
-                        <input type="text" class="form-control" id="refaccion" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label>Vehiculo</label>
-                        <input type="text" class="form-control" id="vehiculo" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label>Cantidad</label>
-                        <input type="text" class="form-control" id="cantidad" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label>Costo Unitario</label>
-                        <input type="text" class="form-control" id="costo" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label>Fecha de ingreso</label>
-                        <input type="text" class="form-control" id="date" placeholder="">
-                    </div> -->
-                        <button type="submit" class="btn btn-danger btn-block" name="btnEli">Eliminar</button>
-                        <br>
-                        <button type="submit" class="btn btn-primary btn-block" data-dismiss="modal">Cancelar</button>
-                    </form>
-                </div>
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">¿Deseas eliminar?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            </div>
+            <div class="modal-body">Esta accion no se puede deshacer</div>
                 <div class="modal-footer">
+                <form role="form" action="controller/eliminarRefaccion.php" method="POST">
+                    <input type="hidden" name="eliId" id="eliId">
+                        <button type="submit" class="btn btn-danger" name="btnEli">Eliminar</button>
+                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                    </form>
                     </div>
                 </div>
             </div>
@@ -274,14 +252,21 @@
         </div>
 
         <script>
-        $(document).ready(function(){
-          $("#myInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function() {
-              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            $(document).ready(function(){
+                $('.elibtn').on('click', function() {
+                    $('#eliminarModal').modal('show');
+                        $tr = $(this).closest('tr');
+                        var data = $tr.children("td").map(function() {
+                            return $(this).text();
+                        }).get();
+
+                        console.log(data);
+
+                        $('#eliId').val(data[0]);
+                });
             });
-          });
-        });
         </script>
-</body>
-</html>
+
+<?php
+require_once "views/footer.php";
+?>
