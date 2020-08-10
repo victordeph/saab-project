@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/refacciones.css">
     <title>Reportes</title>
@@ -16,16 +16,16 @@
     <?php
 
     require 'controller/conexion.php';
-    
+
     $query = "select * from reportes";
     $query_run = mysqli_query($conexion, $query);
     $array = mysqli_fetch_array($query_run);
-    
+
     ?>
 
 </head>
 <body>
-    
+
     <header>
         <div class="logotipo">
             <img src="img/logo.png" alt="Logotipo">
@@ -35,7 +35,7 @@
     <div>
 
     </div>
-    
+
     <div class="container">
         <h2>Refacciones Solicitadas</h2>
         <div class="btn-group" role="group" aria-label="Basic example">
@@ -43,7 +43,7 @@
             <button type="button" class="btn btn-secondary">Departamento</button>
             <button type="button" class="btn btn-secondary">Más solicitadas</button>
         </div>
-        <div class="table-responsive">          
+        <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
@@ -58,7 +58,7 @@
                         <th># Refaccion</th>
                         <th>Status</th>
                         <!-- <th>Acciones</th> -->
-                        
+
                     </tr>
                 </thead>
                 <?php

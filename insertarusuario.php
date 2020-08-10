@@ -7,8 +7,9 @@ if(isset($_POST['insert']))
 
     $usuario = $_POST['usuario'];
     $departamento = $_POST['departamento'];
+    $password = $_POST['password'];
 
-    $query = "insert into catalogo (usuario, departamento) values ('$usuario', '$departamento')";
+    $query = "insert into catalogo (usuario, departamento, password) values ('$usuario', '$departamento', '$password')";
     $query_run = mysqli_query($conexion, $query);
 
     if($query_run)
