@@ -12,15 +12,6 @@
 </head>
 <body>
 
-    <header>
-        <div class="logotipo">
-            <img src="img/logo.png" alt="Logotipo">
-        </div>
-    </header>
-
-    <div>
-
-    </div>
 
     <div class="container">
         <h2>
