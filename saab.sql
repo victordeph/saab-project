@@ -12,6 +12,8 @@ fecha DATE NOT NULL
 );	
 
 INSERT INTO refacciones (refaccion,vehiculo,cantidad, costo, fecha) values ('test','test','10','10','2000-03-31');
+INSERT INTO refacciones (refaccion,vehiculo,cantidad, costo, fecha) values ('Facia delantera','Nissan Versa','100','899','2020-08-10');
+INSERT INTO refacciones (refaccion,vehiculo,cantidad, costo, fecha) values ('Facia delantera','Nissan Versa','100','899','2020-08-10');
 
 /* CREACION DE TABLA REPORTES */
 create table reportes(

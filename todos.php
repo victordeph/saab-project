@@ -87,8 +87,7 @@ require_once "views/header.php";
                         <label>Estado</label>
                         <select class="form-control" id="status" name="status">
                             <option>Pendiente</option>
-                            <option>Aprobado</option>
-                            <option>No aprovado</option>
+                            <option>Completado</option>
                         </select>
                     </div>
     </div>

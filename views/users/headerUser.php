@@ -40,7 +40,7 @@
 
         <?php 
         if (!isset($usuario)) {
-            header("location: login.html");
+            header("location: index.html");
         }else{ 
         ?>
 

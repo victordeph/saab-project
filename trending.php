@@ -7,7 +7,8 @@ require_once "views/header.php";
 
     require 'controller/conexion.php';
 
-    $query = "SELECT id_refacciones, refaccion_trending, vehiculo_trending, cantidad_trending FROM trending;";
+    $query = "SELECT id_refacciones, refaccion_trending, vehiculo_trending, cantidad_trending FROM trending 
+    ORDER BY cantidad_trending DESC;";
     $query_run = mysqli_query($conexion, $query);
     $array = mysqli_fetch_array($query_run);
 
@@ -20,7 +21,7 @@ require_once "views/header.php";
             <table class="table">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        <th></th>
                         <th>Refaccion</th>
                         <th>Vehiculo</th>
                         <th>Cantidades solicitadas</th>

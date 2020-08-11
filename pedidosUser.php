@@ -66,8 +66,10 @@ $array = mysqli_fetch_array($query_run);
         
         <div class="modal-content">
             <div class="modal-header" >
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4>Solicitud</h4>
+            <h5 class="modal-title" id="exampleModalLabel">Solicitar Refaccion</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
             </div>
                 <div class="modal-body">
                 <form role="form" action="controller/solicitarRefaccion.php" method="POST" class="my-login-validation" novalidate="">

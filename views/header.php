@@ -41,7 +41,7 @@
 
         <?php 
         if (!isset($user)) {
-            header("location: loginadmin.html");
+            header("location: index.html");
         }else{
         ?>
 
