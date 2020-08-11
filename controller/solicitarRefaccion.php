@@ -16,7 +16,7 @@ if (isset($_POST['solicitar'])) {
     $query_run = mysqli_query($conexion, $query);
 
     if ($query_run) {
-        header('location: ../solicitudRefacciones.php');   
+        header('location: ../pedidosUser.php');   
     }
 }
 
@@ -27,9 +27,7 @@ if (isset($_POST['solicitar'])) {
     $query = "UPDATE refacciones SET cantidad = cantidad-$cantidad where id_refacciones=$id;";
     $query_run = mysqli_query($conexion, $query);
 
-    if ($query_run) {
-        header('location: ../solicitudRefacciones.php');   
-    }
+
 }
 
 if (isset($_POST['solicitar'])) {

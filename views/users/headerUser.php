@@ -1,7 +1,6 @@
-    <?php
+<?php
     session_start();
-    $user = $_SESSION['user'];
-
+    $usuario = $_SESSION['user'];
     ?>
     
     <!DOCTYPE html>
@@ -40,9 +39,9 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <?php 
-        if (!isset($user)) {
-            header("location: loginadmin.html");
-        }else{
+        if (!isset($usuario)) {
+            header("location: login.html");
+        }else{ 
         ?>
 
         <!-- Sidebar - Brand -->
@@ -50,10 +49,10 @@
             <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-cogs"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">SAAB <sup>Admin</sup></div>
+            <div class="sidebar-brand-text mx-3">SAAB <sup>Usuarios</sup></div>
             <div class="sidebar-heading">
                 <?php 
-                echo $user;  
+                echo $usuario;  
                 } ?>
         </div>
         </a>
@@ -67,73 +66,12 @@
         <li class="nav-item active">
             <a class="nav-link" href="refacciones.php">
             <i class="fas fa-warehouse"></i>
-            <span>Inventario</span></a>
+            <span>SolicitarRefacciones</span></a>
         </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider">
 
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Modulos
-        </div>
-
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-sign-in-alt"></i>
-            <span>Acceso</span>
-            </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="usuarios.php">Usuarios</a>
-            </div>
-            </div>
-        </li>
-
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <div class="sidebar-heading">
-            Pedidos
-        </div>
-
-        <li class="nav-item">
-            <a class="nav-link" href="todos.php">
-            <i class="fas fa-chart-bar"></i>
-            <span>Todos los pedidos</span></a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#departamento" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-filter"></i>
-            <span>Por departamento</span>
-            </a>
-            <div id="departamento" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <!-- <h6 class="collapse-header">Administracion</h6> -->
-                <a class="collapse-item" href="ventas.php">Ventas</a>
-                <a class="collapse-item" href="colisiones.php">Colisiones</a>
-                <a class="collapse-item" href="mecanica.php">Mecanica</a>
-            </div>
-            </div>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="trending.php">
-            <i class="fas fa-thumbs-up"></i>
-            <span>Mas solicitados</span></a>
-        </li>
-
-        <hr class="sidebar-divider">
-
-
-        
-
-    
-        
-        
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -165,8 +103,8 @@
                 <!-- Nav Item - User Information -->
                 <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Administrador</span>
-                    <i class="fas fa-user-shield" style="color: gray;"></i>
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Empleado</span>
+                    <i class="fas fa-user-tag" style="color: gray;"></i>
                 </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
