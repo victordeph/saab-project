@@ -13,7 +13,7 @@ if(isset($_POST['btnEli']))
     if($query_run)
     {
         echo '<script> alert("Datos eliminados"); </script>';
-        header('location: usuarioPrueba.php');
+        header('location: usuarios.php');
     }
     else
     {

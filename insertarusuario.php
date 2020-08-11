@@ -15,7 +15,7 @@ if(isset($_POST['insert']))
     if($query_run)
     {
         echo '<script> alert("Datos guardados"); </script>';
-        header('location: usuarioPrueba.php');
+        header('location: usuarios.php');
     }
     else
     {
