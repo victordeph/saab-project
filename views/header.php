@@ -1,3 +1,9 @@
+    <?php
+    session_start();
+    $user = $_SESSION['user'];
+
+    ?>
+    
     <!DOCTYPE html>
     <html lang="en">
 
@@ -33,13 +39,26 @@
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
+        <?php 
+        if (!isset($user)) {
+            header("location: login.html");
+        }else{
+        ?>
+
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
             <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-cogs"></i>
             </div>
             <div class="sidebar-brand-text mx-3">SAAB <sup>Admin</sup></div>
+            <div class="sidebar-heading">
+                <?php 
+                echo $user;  
+                } ?>
+        </div>
         </a>
+
+        
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">

@@ -37,7 +37,7 @@
             <div class="modal-body">Selecciona salir para cerrar tu sesion actual</div>
             <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-            <a class="btn btn-primary" href="login.html">Salir</a>
+            <a class="btn btn-primary" href="controller/logout.php">Salir</a>
             </div>
         </div>
         </div>

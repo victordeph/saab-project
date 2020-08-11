@@ -31,7 +31,6 @@ require_once "views/header.php";
                         <th># <sup>refaccion</sup></th>
                         <th>Status</th>
                         <th></th>
-
                     </tr>
                 </thead>
                 <?php
@@ -88,7 +87,7 @@ require_once "views/header.php";
                         <label>Estado</label>
                         <select class="form-control" id="status" name="status">
                             <option>Pendiente</option>
-                            <option>Aprovado</option>
+                            <option>Aprobado</option>
                             <option>No aprovado</option>
                         </select>
                     </div>
