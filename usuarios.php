@@ -66,8 +66,11 @@ require_once "views/header.php";
                 <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header" >
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4>Modificar</h4>
+                <h5 class="modal-title" id="exampleModalLabel">Modificar</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+                    
                 </div>
                     <form role="form" action="modusuario.php" method="POST">
                     <div class="modal-body">
@@ -123,9 +126,11 @@ require_once "views/header.php";
                 <div class="modal-dialog">
                     <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="modal-header" style="background-color:Indianred">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h6>Eliminar</h6>
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Eliminar</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
                     </div>
                         <form role="form" action="borrarusuario.php" method="POST">
                         <div class="modal-body">
@@ -133,8 +138,8 @@ require_once "views/header.php";
                         <h4>¿Desea borrar estos datos? </h4>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" name="btnEli" class="btn btn-primary btn-block" style="background-color:black"> Eliminar</button>
-                        <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" name="btnEli" class="btn btn-danger btn-block"> Eliminar</button>
+                        <button type="submit" class="btn btn-primary btn-block" data-dismiss="modal">Cancelar</button>
                         </div>
                     </form>
                     </div>
@@ -164,9 +169,11 @@ require_once "views/header.php";
 
             <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header" style="background-color:#5BB85D">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h5>Añadir</h5>
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modificar</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
             </div>
                 <form action="insertarusuario.php" method="POST">
 
