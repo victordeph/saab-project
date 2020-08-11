@@ -20,10 +20,17 @@ if ($query_run) {
 
 }
 
+if (isset($_POST['insertar'])) {
 
-?>
+    $refaccion = $_POST['refaccion'];
+    $vehiculo = $_POST['vehiculo'];
 
-<?php
-require 'conexion.php';
 
-?>
+
+
+$query = "INSERT INTO trending (refaccion_trending, vehiculo_trending, cantidad_trending) values ('$refaccion', '$vehiculo',0);";
+$query_run = mysqli_query($conexion, $query);
+
+
+}
+

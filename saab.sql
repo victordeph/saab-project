@@ -28,18 +28,20 @@ id_refacciones INT NOT NULL
 );
 
 create table trending(
-id_trending INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 refaccion_trending VARCHAR(20) NOT NULL,
 vehiculo_trending VARCHAR(20) NOT NULL,
 cantidad_trending INT NOT NULL,
-id_refacciones INT NOT NULL
+id_refacciones INT
 );
 
 ALTER TABLE trending ADD FOREIGN KEY(id_refacciones) REFERENCES refacciones(id_refacciones);
 ALTER TABLE reportes ADD FOREIGN KEY(id_refacciones) REFERENCES refacciones(id_refacciones);
 
+INSERT INTO trending (refaccion_trending, vehiculo_trending, cantidad_trending) values ('test', 'test',0);
 
+update trending set id_refacciones=1 where refaccion_trending='test' and vehiculo_trending='test';
 
+select id_refacciones, refaccion_trending, vehiculo_trending, cantidad_trending from trending;
 
 INSERT INTO reportes (refaccion,vehiculo,cantidad, costo_unitario, costo_total, fecha_solictud, id_refacciones) values ('test','test','10','10','10','2000-03-31','1');
 

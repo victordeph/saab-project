@@ -32,6 +32,28 @@ if (isset($_POST['solicitar'])) {
     }
 }
 
+if (isset($_POST['solicitar'])) {
+    $refaccion = $_POST['refaccion'];
+    $vehiculo = $_POST['vehiculo'];
+    $cantidad = $_POST['cantidad'];
+
+    $query = "UPDATE trending SET cantidad_trending = cantidad_trending+$cantidad where refaccion_trending='$refaccion' 
+    and vehiculo_trending='$vehiculo';";
+    $query_run = mysqli_query($conexion, $query);
+
+}
+
+if (isset($_POST['solicitar'])) {
+    $id = $_POST['idRefaccion'];
+    $refaccion = $_POST['refaccion'];
+    $vehiculo = $_POST['vehiculo'];
+
+    $query = "UPDATE trending SET id_refacciones = $id where refaccion_trending='$refaccion' 
+    and vehiculo_trending='$vehiculo';";
+    $query_run = mysqli_query($conexion, $query);
+
+}
+
 if (isset($_POST['btnEstado'])) {
     $id_reporte = $_POST['id_reporte'];
     $estado = $_POST['status'];

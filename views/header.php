@@ -121,7 +121,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="index.php">
+            <a class="nav-link" href="trending.php">
             <i class="fas fa-thumbs-up"></i>
             <span>Mas solicitados</span></a>
         </li>
